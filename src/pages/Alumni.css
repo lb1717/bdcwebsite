@@ -1,0 +1,146 @@
+.alumni {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  min-height: 100vh;
+  padding: 40px 0 4rem 0;
+}
+
+.alumni-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.alumni-text {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.alumni-text h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.alumni-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #cccccc;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.company-logos {
+  margin-top: 3rem;
+}
+
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2.5rem;
+  margin-top: 2rem;
+  justify-items: center;
+  align-items: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.company-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  width: 100%;
+  max-width: 200px;
+}
+
+.company-logo img {
+  max-width: 100%;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%) invert(100%) brightness(1.2);
+}
+
+.no-logos {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  color: #888;
+  font-style: italic;
+}
+
+.no-logos p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .alumni {
+    padding: 30px 0 3rem 0;
+  }
+  
+  .alumni-content {
+    padding: 0 1rem;
+  }
+  
+  .alumni-text h1 {
+    font-size: 2.5rem;
+  }
+  
+  .alumni-text p {
+    font-size: 1.1rem;
+  }
+  
+  .logos-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+  }
+  
+  .company-logo img {
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .alumni {
+    padding: 20px 0 2rem 0;
+  }
+  
+  .alumni-text h1 {
+    font-size: 2rem;
+  }
+  
+  .alumni-text p {
+    font-size: 1rem;
+  }
+  
+  .logos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 600px;
+  }
+  
+  .company-logo img {
+    height: 40px;
+  }
+}
+
+@media (max-width: 360px) {
+  .logos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    max-width: 400px;
+  }
+  
+  .company-logo img {
+    height: 35px;
+  }
+}

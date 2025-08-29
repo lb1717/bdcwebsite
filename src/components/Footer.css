@@ -1,0 +1,281 @@
+.footer {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem 0 1rem;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-section h4 {
+  color: #e0e0e0;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: 'Times New Roman', Georgia, 'Palatino', serif;
+  position: relative;
+}
+
+.footer-section h4::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, #888888, transparent);
+}
+
+/* Footer Brand */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.footer-brand .diamond-logo {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 8px rgba(136, 136, 136, 0.3));
+}
+
+.footer-brand:hover .footer-logo {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 12px rgba(136, 136, 136, 0.5));
+}
+
+/* Footer Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem 1rem;
+}
+
+.footer-links li {
+  margin-bottom: 0;
+}
+
+.footer-links a {
+  color: #b0b0b0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  font-family: 'Times New Roman', Georgia, 'Palatino', serif;
+  padding: 4px 0;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  color: #b0b0b0;
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Times New Roman', Georgia, 'Palatino', serif;
+}
+
+.social-link:hover {
+  color: #ffffff;
+  border-color: #888888;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bottom-content p {
+  color: #888888;
+  font-size: 0.9rem;
+  font-family: 'Times New Roman', Georgia, 'Palatino', serif;
+  margin: 0;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-bottom-links a {
+  color: #888888;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-family: 'Times New Roman', Georgia, 'Palatino', serif;
+  transition: color 0.3s ease;
+  padding: 4px 0;
+}
+
+.footer-bottom-links a:hover {
+  color: #b0b0b0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 0 1rem;
+  }
+
+  .footer-container {
+    padding: 0 1rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-brand {
+    align-items: center;
+  }
+
+  .footer-brand .diamond-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-section h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-template-columns: 1fr;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-bottom-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 1rem 0 0.8rem;
+  }
+
+  .footer-container {
+    padding: 0 0.8rem;
+  }
+
+  .footer-content {
+    gap: 1.2rem;
+  }
+
+  .footer-brand .diamond-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .footer-links a {
+    padding: 6px 0;
+    font-size: 0.9rem;
+  }
+
+  .social-link {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  .footer-bottom-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-bottom-links a {
+    padding: 6px 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer {
+    padding: 0.8rem 0 0.6rem;
+  }
+
+  .footer-container {
+    padding: 0 0.6rem;
+  }
+
+  .footer-content {
+    gap: 1rem;
+  }
+
+  .footer-brand .diamond-logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  .footer-links a {
+    padding: 8px 0;
+    font-size: 0.85rem;
+  }
+
+  .social-link {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+}
