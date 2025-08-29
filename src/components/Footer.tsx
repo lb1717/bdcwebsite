@@ -45,8 +45,8 @@ const Footer: React.FC = () => {
           <div className="footer-bottom-content">
             <p>&copy; 2024 Black Diamond Capital Investors. All rights reserved.</p>
             <div className="footer-bottom-links">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
+              <button className="footer-link-button">Privacy Policy</button>
+              <button className="footer-link-button">Terms of Service</button>
             </div>
           </div>
         </div>

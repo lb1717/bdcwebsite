@@ -159,6 +159,22 @@
   color: #b0b0b0;
 }
 
+.footer-link-button {
+  background: none;
+  border: none;
+  color: #888888;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-family: 'Times New Roman', Georgia, 'Palatino', serif;
+  transition: color 0.3s ease;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
+.footer-link-button:hover {
+  color: #b0b0b0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .footer {
