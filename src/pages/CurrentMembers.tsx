@@ -136,13 +136,13 @@ const CurrentMembers: React.FC = () => {
     },
     {
       name: 'Alanna Li',
-      position: 'L/S Assistant Portfolio Manager',
+      position: 'L/S Associate Portfolio Manager',
       image: alannaLi,
       bio: 'Alanna is a junior studying Economics. She interned at Seldon Capital this past summer and will be interning in investment banking at Goldman Sachs next summer.'
     },
     {
       name: 'Khanya Mhlongo',
-      position: 'L/S Assistant Portfolio Manager',
+      position: 'L/S Associate Portfolio Manager',
       image: khanyaMhlongo,
       bio: 'Khanya is sophomore from South Africa concentrating in Applied Mathematics and Economics. This past summer, he worked as a private equity analyst for a London Based family office. In the past, he worked for Knife Capital - a venture capital investment firm in Cape Town. Outside of BDC, he plays for the Harvard Men\'s Rugby team, does research with the Economics department and pitches stocks as a Senior Investment Researcher for the Harvard Financial Analysts Club. In his free time he enjoys hiking, playing soccer and listening to music with friends.'
     },
@@ -160,7 +160,7 @@ const CurrentMembers: React.FC = () => {
     },
     {
       name: 'Alex van Poecke',
-      position: 'Assistant Macro Portfolio Manager',
+      position: 'Macro Associate Portfolio Manager',
       image: alexVanPoecke,
       bio: 'Alexander is a sophomore from London concentrating in Applied Mathematics with Computer Science and Economics. This past summer, he worked at Vitol in London as a Quantitative Trading Intern focusing on derivatives in Gas and Power. Outside of BDC, he is involved with the Charles River Growth Fund (L/S), the Business Board of the Harvard Lampoon, and enjoys backgammon, tennis and golf.'
     }
