@@ -15,6 +15,8 @@ import khanyaMhlongo from '../headshots/khanya-mhlongo-optimized.jpg';
 import russellLi from '../headshots/Russell Li.jpg';
 import jonathanSun from '../headshots/Johnathan Sun.jpeg';
 import alexVanPoecke from '../headshots/alexander-van-poecke-optimized.jpg';
+import bonaYoo from '../headshots/_DSF1896 - Bona Yoo.jpg';
+import mattMelucci from '../headshots/MattBDCHeadshot - Matt Melucci.png';
 
 const CurrentMembers: React.FC = () => {
   const fadeInRefs = useRef<(HTMLElement | null)[]>([]);
@@ -34,7 +36,9 @@ const CurrentMembers: React.FC = () => {
       khanyaMhlongo,
       russellLi,
       jonathanSun,
-      alexVanPoecke
+      alexVanPoecke,
+      bonaYoo,
+      mattMelucci
     ];
 
     images.forEach(src => {
@@ -85,8 +89,8 @@ const CurrentMembers: React.FC = () => {
     {
       name: 'Bona Yoo',
       position: 'COO',
-      image: 'https://via.placeholder.com/150x150/333/fff?text=BY',
-      bio: 'Bona is a junior from New Jersey concentrating in Economics. This past summer, she worked in economic research for Harvard Business School at their Europe Research Center in Paris, France. She\'ll be joining Goldman Sachs as an Investment Banking Summer Analyst for their TMT group in San Francisco in Summer 2025. Outside of BDC, she enjoys chamber music performances, going to yoga and pilates, and discovering Boston\'s newest restaurants with her friends.'
+      image: bonaYoo,
+      bio: 'Bona is a senior from Woodcliff Lake, NJ concentrating in Economics. This past summer, she worked as an Investment Banking Summer Analyst at Goldman Sachs in their TMT division in San Francisco, where she will be returning full-time. In the past, she has worked as a research fellow for Harvard Business School at their Economic Research Center in Paris, France.'
     },
     {
       name: 'Alex Geng',
@@ -109,8 +113,8 @@ const CurrentMembers: React.FC = () => {
     {
       name: 'Matt Melucci',
       position: 'Director of Member Affairs',
-      image: 'https://via.placeholder.com/150x150/333/fff?text=MM',
-      bio: ''
+      image: mattMelucci,
+      bio: 'Matt is a senior from New York, NY concentrating in Applied Math and Economics with a secondary in Classics. This past summer, he worked as a Growth Equity Summer Analyst at Silversmith Capital Partners where he will be returning full-time focusing on technology companies. In the past, he interned at Major Food Group on the finance team and at a technology startup based in Paris, FR. Outside of BDC, he is Director of Operations for the Crimson Business Board and a course assistant within the Economics department. In his free time, he enjoys cheering on all New York sports teams (go Knicks!), playing piano, reading, and running.'
     },
     {
       name: 'Lily Peng',
