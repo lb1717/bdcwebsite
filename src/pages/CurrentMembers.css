@@ -164,6 +164,21 @@
   backdrop-filter: blur(10px);
 }
 
+.partners-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.partners-footer p {
+  color: #888888;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin: 0;
+  font-family: 'Times New Roman', Georgia, 'Palatino', serif;
+}
+
 /* Optimized fade-in animation */
 .fade-in-up {
   opacity: 0;

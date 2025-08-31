@@ -229,11 +229,18 @@ const CurrentMembers: React.FC = () => {
         <section className="active-partners" ref={(el) => addFadeInRef(el, 1)}>
           <h2>Active Partners</h2>
           <div className="partners-list">
-            {activePartners.map((partner, index) => (
-              <div key={index} className="partner-item">
-                {partner}
-              </div>
-            ))}
+            {activePartners.map((partner, index) => {
+              // Check if this partner is in the executive board
+              const isBoardMember = executiveBoard.some(member => member.name === partner);
+              return (
+                <div key={index} className="partner-item">
+                  {partner}{isBoardMember ? '*' : ''}
+                </div>
+              );
+            })}
+          </div>
+          <div className="partners-footer">
+            <p>* Board Member</p>
           </div>
         </section>
       </div>
