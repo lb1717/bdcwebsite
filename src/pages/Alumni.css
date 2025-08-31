@@ -37,6 +37,15 @@
   margin-top: 3rem;
 }
 
+.logos-subtitle {
+  text-align: center;
+  color: #cccccc;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  font-family: 'Times New Roman', Georgia, 'Palatino', serif;
+}
+
 .logos-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);

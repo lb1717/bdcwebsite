@@ -37,6 +37,7 @@ const Alumni: React.FC = () => {
         </div>
         
         <div className="company-logos fade-in-up">
+          <h2 className="logos-subtitle">Select Alumni Placements</h2>
           <div className="logos-grid">
             {companyLogos.map((logo, index) => (
               <div key={index} className="company-logo">

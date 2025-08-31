@@ -15,13 +15,14 @@ const Sponsorships: React.FC = () => {
     <div className="sponsorships">
       <div className="sponsorships-content">
         <div className="sponsorships-text fade-in-up">
-          <h1>Select Partners</h1>
+          <h1>Sponsorships</h1>
           <p>
-            If you are interested in partnering with Black Diamond Capital, please reach out to us at contact@blackdiamond-capital.org
+            If you are interested in partnering with Black Diamond Capital, please reach out to <span className="email-link">contact@blackdiamond-capital.org</span>
           </p>
         </div>
         
         <div className="company-logos fade-in-up">
+          <h2 className="logos-subtitle">Select Partners</h2>
           <div className="logos-grid">
             {companyLogos.map((logo, index) => (
               <div key={index} className="company-logo">
