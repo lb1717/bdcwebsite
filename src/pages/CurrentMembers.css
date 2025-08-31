@@ -69,6 +69,11 @@
   border: 2px solid #333;
 }
 
+/* Special styling for Matt's image to show more of his face */
+.member-image img[alt*="Matt"] {
+  object-position: center 30%;
+}
+
 .member-info {
   flex: 1;
   display: flex;
