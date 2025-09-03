@@ -1,0 +1,8 @@
+# Handle React Router - redirect all routes to index.html
+/*    /index.html   200
+
+# Redirect www to non-www (optional, for SEO)
+www.blackdiamond-capital.org/*    https://blackdiamond-capital.org/:splat    301
+
+# Ensure sitemap is accessible
+/sitemap.xml    /sitemap.xml    200
