@@ -1,7 +1,7 @@
 .current-members {
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
   min-height: 100vh;
-  padding: 40px 0 4rem 0;
+  padding: 40px 0 2rem 0;
   will-change: scroll-position;
 }
 
@@ -36,27 +36,37 @@
 }
 
 .board-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   margin-top: 2rem;
+  justify-content: center;
 }
 
 .board-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1.2rem;
   text-align: center;
   backdrop-filter: blur(10px);
-  min-height: 400px;
+  min-height: 320px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.board-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
 }
 
 .member-image {
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   display: flex;
   justify-content: center;
 }
@@ -75,7 +85,6 @@
 }
 
 .member-info {
-  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -84,7 +93,7 @@
   color: #ffffff;
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
   font-family: 'Times New Roman', Georgia, 'Palatino', serif;
 }
 
@@ -92,7 +101,7 @@
   color: #c0c0c0;
   font-size: 0.9rem;
   font-weight: 500;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
   font-family: 'Times New Roman', Georgia, 'Palatino', serif;
 }
 
@@ -100,13 +109,25 @@
   font-size: 0.85rem;
   line-height: 1.4;
   text-align: center;
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.8rem;
   color: #ccc;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 4.2em; /* 3 lines * 1.4 line-height */
 }
 
 .member-bio:empty {
   display: none;
 }
+
+.see-more {
+  color: #888888;
+  font-style: italic;
+}
+
 
 .linkedin-button {
   margin: 1rem auto 0 auto;
@@ -131,7 +152,7 @@
 
 /* Active Partners Section */
 .active-partners {
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 .active-partners h2 {
@@ -209,8 +230,13 @@
   }
   
   .board-cards {
-    grid-template-columns: 1fr;
     gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .board-card {
+    width: 100%;
+    max-width: 300px;
   }
   
   .partners-list {
@@ -224,7 +250,7 @@
   }
   
   .board-card {
-    min-height: 350px;
+    min-height: 280px;
     padding: 1rem;
   }
 }
@@ -245,10 +271,129 @@
   }
   
   .board-card {
-    min-height: 300px;
+    min-height: 240px;
   }
   
   .partners-list {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  backdrop-filter: blur(20px);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-member-image {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.modal-member-image img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid #333;
+}
+
+.modal-member-info {
+  text-align: center;
+}
+
+.modal-member-info h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-family: 'Times New Roman', Georgia, 'Palatino', serif;
+}
+
+.modal-member-position {
+  color: #c0c0c0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  font-family: 'Times New Roman', Georgia, 'Palatino', serif;
+}
+
+.modal-member-bio {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: left;
+  color: #cccccc;
+  font-family: 'Times New Roman', Georgia, 'Palatino', serif;
+}
+
+/* Modal Responsive */
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 1rem;
+  }
+  
+  .modal-content {
+    padding: 1.5rem;
+  }
+  
+  .modal-member-image img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .modal-member-info h2 {
+    font-size: 1.5rem;
+  }
+  
+  .modal-member-position {
+    font-size: 1rem;
+  }
+  
+  .modal-member-bio {
+    font-size: 0.9rem;
   }
 }

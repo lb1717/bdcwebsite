@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './CurrentMembers.css';
 import leoByrne from '../headshots/leo-byrne.jpg';
 import aaronJoy from '../headshots/aaron-joy-optimized.jpg';
@@ -20,6 +20,8 @@ import mattMelucci from '../headshots/MattBDCHeadshot - Matt Melucci.png';
 
 const CurrentMembers: React.FC = () => {
   const fadeInRefs = useRef<(HTMLElement | null)[]>([]);
+  const [selectedMember, setSelectedMember] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Preload all images
   useEffect(() => {
@@ -73,12 +75,36 @@ const CurrentMembers: React.FC = () => {
     fadeInRefs.current[index] = el;
   };
 
+  const openModal = (member: any) => {
+    setSelectedMember(member);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedMember(null);
+    setIsModalOpen(false);
+  };
+
+  const truncateBio = (bio: string, maxLength: number = 90) => {
+    if (bio.length <= maxLength) return bio;
+    
+    // Find the last complete word within the limit
+    let truncated = bio.substring(0, maxLength);
+    const lastSpaceIndex = truncated.lastIndexOf(' ');
+    
+    if (lastSpaceIndex > 0) {
+      truncated = truncated.substring(0, lastSpaceIndex);
+    }
+    
+    return truncated + '... (see more)';
+  };
+
   const executiveBoard = [
     {
       name: 'Sebastian Taubman',
       position: 'Co-President',
       image: sebastianTaubman,
-      bio: 'Sebastian is a senior from Bloomfield Hills, Michigan concentrating in Economics. This past summer, he worked as an Investment Banking Summer Analyst at M. Klein & Company, where he will be returning full-time. Previously, he interned at Long Lake Management and Garnett Station Partners. On campus, he serves as Co-President of the Harvard Investment Association. In his free time, Sebastian enjoys traveling.'
+      bio: 'Sebastian is a senior from Bloomfield Hills, Michigan concentrating in Economics. He will be working at Sixth Street after graduation. This past summer, he worked as an Investment Banking Summer Analyst at M. Klein & Company. Previously, he interned at Long Lake Management and Garnett Station Partners. On campus, he serves as Co-President of the Harvard Investment Association. In his free time, Sebastian enjoys traveling.'
     },
     {
       name: 'Aaron Joy',
@@ -103,24 +129,6 @@ const CurrentMembers: React.FC = () => {
       position: 'CFO',
       image: vivekShah,
       bio: 'Vivek is a junior from Mumbai, India pursuing a joint concentration in statistics and classics. This past summer, he worked as an associate consultant intern at Bain & Company and will work as an investment banking intern at Citigroup next summer. He previously worked at Moelis as an IB intern. Outside of BDC, he plays club ultimate frisbee and researches Assyrian texts. In his free time, he enjoys travelling, horseback riding, supporting the New England Patriots, and spends way too much time playing pool.'
-    },
-    {
-      name: 'Leo Byrne',
-      position: 'Director of Alumni Affairs',
-      image: leoByrne,
-      bio: 'Leo is a sophomore from Stockholm, Sweden concentrating in Applied Mathematics and Economics. This past summer he worked in private equity at EQT Partners. Outside of BDC Leo plays varsity basketball at Harvard and is also a board member of the Harvard University Sports Lab (HUSL). In his free time, Leo enjoys watching sports, travelling, and playing golf.'
-    },
-    {
-      name: 'Matt Melucci',
-      position: 'Director of Member Affairs',
-      image: mattMelucci,
-      bio: 'Matt is a senior from New York, NY concentrating in Applied Math and Economics with a secondary in Classics. This past summer, he worked as a Growth Equity Summer Analyst at Silversmith Capital Partners where he will be returning full-time focusing on technology companies. In the past, he interned at Major Food Group on the finance team and at a technology startup based in Paris, FR. Outside of BDC, he is Director of Operations for the Crimson Business Board and a course assistant within the Economics department. In his free time, he enjoys cheering on all New York sports teams (go Knicks!), playing piano, reading, and running.'
-    },
-    {
-      name: 'Lily Peng',
-      position: 'Director of Recruiting',
-      image: lilyPeng,
-      bio: 'Lily is a sophomore from Maryland, near the Washington D.C. area. She is pursuing an Applied Math and Economics concentration. This past summer, she developed machine learning programs as an AI Strategy and Merchandising intern for luxury brands at the Bicester Village in Shanghai. Outside of BDC, she is a Case Team Lead for Harvard Consulting on Business and the Environment and a viola player in the Harvard Radcliffe orchestra. In her free time she enjoys photography, filmmaking, shopping, and over-priced sweet treats.'
     },
     {
       name: 'Neil Behl',
@@ -156,13 +164,31 @@ const CurrentMembers: React.FC = () => {
       name: 'Jonathan Sun',
       position: 'Macro Portfolio Manager',
       image: jonathanSun,
-      bio: 'Johnathan is a senior from Rockville, MD pursuing the AB/SM in Applied Mathematics. This past summer, he was a quantitative macro summer analyst at BAM, where he worked on rates and systematic FX teams. Outside of BDC, he does economics and ML research at school and co-captains the Fed Challenge Team. In his free time, he enjoys running with friends, playing piano, and cooking.'
+      bio: 'Jonathan is a senior from Rockville, MD pursuing the AB/SM in Applied Mathematics. This past summer, he was a quantitative macro summer analyst at BAM, where he worked on rates and systematic FX teams. Outside of BDC, he does economics and ML research at school and co-captains the Fed Challenge Team. In his free time, he enjoys running with friends, playing piano, and cooking.'
     },
     {
       name: 'Alex van Poecke',
       position: 'Macro Associate Portfolio Manager',
       image: alexVanPoecke,
       bio: 'Alexander is a sophomore from London concentrating in Applied Mathematics with Computer Science and Economics. This past summer, he worked at Vitol in London as a Quantitative Trading Intern focusing on derivatives in Gas and Power. Outside of BDC, he is involved with the Charles River Growth Fund (L/S), the Business Board of the Harvard Lampoon, and enjoys backgammon, tennis and golf.'
+    },
+    {
+      name: 'Leo Byrne',
+      position: 'Director of Alumni Affairs',
+      image: leoByrne,
+      bio: 'Leo is a sophomore from Stockholm, Sweden concentrating in Applied Mathematics and Economics. This past summer he worked in private equity at EQT Partners. Outside of BDC Leo plays varsity basketball at Harvard and is also a board member of the Harvard University Sports Lab (HUSL). In his free time, Leo enjoys watching sports, travelling, and playing golf.'
+    },
+    {
+      name: 'Matt Melucci',
+      position: 'Director of Member Affairs',
+      image: mattMelucci,
+      bio: 'Matt is a senior from New York, NY concentrating in Applied Math and Economics with a secondary in Classics. This past summer, he worked as a Growth Equity Summer Analyst at Silversmith Capital Partners where he will be returning full-time focusing on technology companies. In the past, he interned at Major Food Group on the finance team and at a technology startup based in Paris, FR. Outside of BDC, he is Director of Operations for the Crimson Business Board and a course assistant within the Economics department. In his free time, he enjoys cheering on all New York sports teams (go Knicks!), playing piano, reading, and running.'
+    },
+    {
+      name: 'Lily Peng',
+      position: 'Director of Recruiting',
+      image: lilyPeng,
+      bio: 'Lily is a sophomore from Maryland, near the Washington D.C. area. She is pursuing an Applied Math and Economics concentration. This past summer, she developed machine learning programs as an AI Strategy and Merchandising intern for luxury brands at the Bicester Village in Shanghai. Outside of BDC, she is a Case Team Lead for Harvard Consulting on Business and the Environment and a viola player in the Harvard Radcliffe orchestra. In her free time she enjoys photography, filmmaking, shopping, and over-priced sweet treats.'
     }
   ];
 
@@ -176,7 +202,7 @@ const CurrentMembers: React.FC = () => {
     'Daniel Bae',
     'Dev Madhavani',
     'Himal Bamzai-Wokhlu',
-    'Johnathan Sun',
+    'Jonathan Sun',
     'Katia Anastas',
     'Katie Lu',
     'Khanya Mhlongo',
@@ -200,7 +226,7 @@ const CurrentMembers: React.FC = () => {
           <p className="subtitle">2025-2026</p>
           <div className="board-cards">
             {executiveBoard.map((member, index) => (
-              <div key={index} className="board-card">
+              <div key={index} className="board-card" onClick={() => openModal(member)}>
                 <div className="member-image">
                   <img 
                     src={member.image} 
@@ -212,15 +238,24 @@ const CurrentMembers: React.FC = () => {
                   <p className="member-position">{member.position}</p>
                   {member.bio && (
                     <p className="member-bio">
-                      {member.bio}
+                      {member.bio.length > 90 ? (
+                        <>
+                          {(() => {
+                            let truncated = member.bio.substring(0, 90);
+                            const lastSpaceIndex = truncated.lastIndexOf(' ');
+                            if (lastSpaceIndex > 0) {
+                              truncated = truncated.substring(0, lastSpaceIndex);
+                            }
+                            return truncated;
+                          })()}...
+                          <span className="see-more"> (see more)</span>
+                        </>
+                      ) : (
+                        member.bio
+                      )}
                     </p>
                   )}
                 </div>
-                <button className="linkedin-button" title="View LinkedIn Profile">
-                  <svg viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
-                </button>
               </div>
             ))}
           </div>
@@ -244,6 +279,25 @@ const CurrentMembers: React.FC = () => {
           </div>
         </section>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && selectedMember && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>×</button>
+            <div className="modal-member-image">
+              <img src={selectedMember.image} alt={selectedMember.name} />
+            </div>
+            <div className="modal-member-info">
+              <h2>{selectedMember.name}</h2>
+              <p className="modal-member-position">{selectedMember.position}</p>
+              {selectedMember.bio && (
+                <p className="modal-member-bio">{selectedMember.bio}</p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

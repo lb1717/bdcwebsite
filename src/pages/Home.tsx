@@ -14,13 +14,13 @@ const Home: React.FC = () => {
           <div className="hero-content">
             <div className="hero-text">
               <h1 className="hero-title">
-                Black Diamond Capital Investors
+                Black Diamond Capital Investors, LLC.
               </h1>
               <p className="hero-subtitle">
-                Est 2013
+                Est. 2013
               </p>
               <p className="hero-description">
-                Black Diamond Capital Investors LLC (BDC) is a student run investment fund at Harvard among the largest and most successful student-run hedge funds in the United States. We employ a broad array of strategies including Equity Long-Short, Equity Special Situations, and Global-Macro to construct a diversified portfolio that seeks relative outperformance of industry benchmarks.
+                Black Diamond Capital Investors, LLC. (BDC) is a student-run investment fund at Harvard and among the largest and most successful student-run hedge funds in the United States. We employ a broad array of strategies including Equity Long-Short, Equity Special Situations, and Global-Macro to construct a diversified portfolio that seeks relative outperformance of industry benchmarks.
               </p>
               <div className="hero-buttons">
                 <Link to="/about" className="btn btn-primary">
