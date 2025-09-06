@@ -85,19 +85,6 @@ const CurrentMembers: React.FC = () => {
     setIsModalOpen(false);
   };
 
-  const truncateBio = (bio: string, maxLength: number = 90) => {
-    if (bio.length <= maxLength) return bio;
-    
-    // Find the last complete word within the limit
-    let truncated = bio.substring(0, maxLength);
-    const lastSpaceIndex = truncated.lastIndexOf(' ');
-    
-    if (lastSpaceIndex > 0) {
-      truncated = truncated.substring(0, lastSpaceIndex);
-    }
-    
-    return truncated + '... (see more)';
-  };
 
   const executiveBoard = [
     {
