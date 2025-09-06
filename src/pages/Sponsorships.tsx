@@ -3,7 +3,6 @@ import './Sponsorships.css';
 
 const Sponsorships: React.FC = () => {
   const companyLogos = [
-    { src: '/firms2/Weissdb.png', alt: 'Weiss Asset Management' },
     { src: '/firms2/Balyasny_Asset_Management.png', alt: 'Balyasny Asset Management' },
     { src: '/firms2/Jane_Street_Capital_Logo.svg.png', alt: 'Jane Street Capital' },
     { src: '/firms2/Bridgewater_Associates_logo.svg', alt: 'Bridgewater Associates' },
