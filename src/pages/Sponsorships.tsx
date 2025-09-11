@@ -16,7 +16,7 @@ const Sponsorships: React.FC = () => {
         <div className="sponsorships-text fade-in-up">
           <h1>Sponsorships</h1>
           <p>
-            If you are interested in partnering with Black Diamond Capital, please reach out to <span className="email-link">contact@blackdiamond-capital.org</span>
+            If you are interested in partnering with Black Diamond Capital, please reach out to <span className="email-link">board@blackdiamond-capital.org</span>
           </p>
         </div>
         
