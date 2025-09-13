@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './CurrentMembers.css';
 import leoByrne from '../headshots/leo-byrne.jpg';
 import aaronJoy from '../headshots/aaron-joy-optimized.jpg';
@@ -22,6 +23,8 @@ const CurrentMembers: React.FC = () => {
   const fadeInRefs = useRef<(HTMLElement | null)[]>([]);
   const [selectedMember, setSelectedMember] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Preload all images
   useEffect(() => {
@@ -71,22 +74,7 @@ const CurrentMembers: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const addFadeInRef = (el: HTMLElement | null, index: number) => {
-    fadeInRefs.current[index] = el;
-  };
-
-  const openModal = (member: any) => {
-    setSelectedMember(member);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setSelectedMember(null);
-    setIsModalOpen(false);
-  };
-
-
-  const executiveBoard = [
+  const executiveBoard = useMemo(() => [
     {
       name: 'Sebastian Taubman',
       position: 'Co-President',
@@ -177,7 +165,7 @@ const CurrentMembers: React.FC = () => {
       image: lilyPeng,
       bio: 'Lily is a sophomore from Maryland, near the Washington D.C. area. She is pursuing an Applied Math and Economics concentration. This past summer, she developed machine learning programs as an AI Strategy and Merchandising intern for luxury brands at the Bicester Village in Shanghai. Outside of BDC, she is a Case Team Lead for Harvard Consulting on Business and the Environment and a viola player in the Harvard Radcliffe orchestra. In her free time she enjoys photography, filmmaking, shopping, and over-priced sweet treats.'
     }
-  ];
+  ], []);
 
   const activePartners = [
     'Aaron Joy',
@@ -204,6 +192,41 @@ const CurrentMembers: React.FC = () => {
     'Vivek Shah',
     'Yafan Wang'
   ];
+
+  // Handle Leo Byrne profile URL
+  useEffect(() => {
+    if (location.pathname === '/current-members/leo-byrne') {
+      const leoMember = executiveBoard.find(member => member.name === 'Leo Byrne');
+      if (leoMember) {
+        setSelectedMember(leoMember);
+        setIsModalOpen(true);
+      }
+    }
+  }, [location.pathname, executiveBoard]);
+
+  const addFadeInRef = (el: HTMLElement | null, index: number) => {
+    fadeInRefs.current[index] = el;
+  };
+
+  const openModal = (member: any) => {
+    setSelectedMember(member);
+    setIsModalOpen(true);
+    
+    // Update URL for Leo Byrne
+    if (member.name === 'Leo Byrne') {
+      navigate('/current-members/leo-byrne', { replace: true });
+    }
+  };
+
+  const closeModal = () => {
+    setSelectedMember(null);
+    setIsModalOpen(false);
+    
+    // Reset URL when closing Leo Byrne's modal
+    if (location.pathname === '/current-members/leo-byrne') {
+      navigate('/current-members', { replace: true });
+    }
+  };
 
   return (
     <div className="current-members">
