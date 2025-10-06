@@ -34,6 +34,17 @@ const Alumni: React.FC = () => {
           <p>
             Current and former Black Diamond Capital Partners have held internships and full-time positions at many of the largest and most successful firms in the financial sector.
           </p>
+          <p className="director-info">
+            <strong>Director of Alumni Affairs: Leo Byrne</strong>
+          </p>
+        </div>
+
+        <div className="non-board-members fade-in-up">
+          <h2>Non-Board Members</h2>
+          <div className="members-list">
+            <div className="member">Owen Wiese</div>
+            <div className="member">Ee Jenn</div>
+          </div>
         </div>
         
         <div className="company-logos fade-in-up">
