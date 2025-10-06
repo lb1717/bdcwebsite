@@ -38,14 +38,6 @@ const Alumni: React.FC = () => {
             <strong>Director of Alumni Affairs: Leo Byrne</strong>
           </p>
         </div>
-
-        <div className="non-board-members fade-in-up">
-          <h2>Non-Board Members</h2>
-          <div className="members-list">
-            <div className="member">Owen Wiese</div>
-            <div className="member">Ee Jenn</div>
-          </div>
-        </div>
         
         <div className="company-logos fade-in-up">
           <h2 className="logos-subtitle">Select Alumni Placements</h2>
