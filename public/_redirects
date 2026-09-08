@@ -1,8 +1,13 @@
-# Handle React Router - redirect all routes to index.html
-/*    /index.html   200
+# Redirect all old pages to the new site
+/about    https://blackdiamondcapital.info    301
+/current-members    https://blackdiamondcapital.info    301
+/current-members/*    https://blackdiamondcapital.info    301
+/alumni    https://blackdiamondcapital.info    301
+/sponsorships    https://blackdiamondcapital.info    301
+/recruiting    https://blackdiamondcapital.info    301
 
-# Redirect www to non-www (optional, for SEO)
+# Redirect www to non-www on old domain
 www.blackdiamond-capital.org/*    https://blackdiamond-capital.org/:splat    301
 
-# Ensure sitemap is accessible
-/sitemap.xml    /sitemap.xml    200
+# Homepage shows the "We have moved" page; all other unmatched routes fall through to it
+/*    /index.html   200
