@@ -54,3 +54,9 @@
   color: #666666;
   margin-top: 0.5rem;
 }
+
+.moved-countdown {
+  color: #ffffff;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}

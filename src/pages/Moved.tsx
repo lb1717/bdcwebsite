@@ -1,16 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import textLogo from '../text-logo.png';
 import './Moved.css';
 
 const NEW_SITE_URL = 'https://blackdiamondcapital.info';
+const REDIRECT_SECONDS = 7;
 
 const Moved: React.FC = () => {
-  useEffect(() => {
-    const timer = window.setTimeout(() => {
-      window.location.href = NEW_SITE_URL;
-    }, 7000);
+  const [secondsLeft, setSecondsLeft] = useState(REDIRECT_SECONDS);
 
-    return () => window.clearTimeout(timer);
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setSecondsLeft((prev) => {
+        if (prev <= 1) {
+          window.clearInterval(interval);
+          window.location.href = NEW_SITE_URL;
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => window.clearInterval(interval);
   }, []);
 
   return (
@@ -25,7 +35,10 @@ const Moved: React.FC = () => {
             blackdiamondcapital.info
           </a>
         </p>
-        <p className="moved-redirect-note">Redirecting you now&hellip;</p>
+        <p className="moved-redirect-note">
+          Redirecting in <span className="moved-countdown">{secondsLeft}</span>{' '}
+          {secondsLeft === 1 ? 'second' : 'seconds'}&hellip;
+        </p>
       </div>
     </div>
   );
